@@ -45,7 +45,7 @@ public class CreateInvoiceScheduler {
           int MAX_INVOICES_QUANTITY = 12;
           int qntyInvoicesToGenerate = new Random().nextInt((MAX_INVOICES_QUANTITY-MIN_INVOICES_QUANTITY)+1) + MIN_INVOICES_QUANTITY;
 
-          for(int count = 0; count < 2; count++){
+          for(int count = 0; count < qntyInvoicesToGenerate; count++){
 
               int amount = this.valueGenerator.generate();
               String name= this.nameGenerator.generate();
