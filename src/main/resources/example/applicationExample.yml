@@ -1,0 +1,11 @@
+stark-bank:
+  projectId:
+  bankCode:
+  branch:
+  account:
+  name:
+  taxID:
+  accountType:
+
+keys:
+  path:
