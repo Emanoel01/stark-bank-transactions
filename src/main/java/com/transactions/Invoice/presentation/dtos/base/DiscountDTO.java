@@ -1,4 +1,4 @@
-package com.transactions.Invoice.presentation.controllers.dtos.base;
+package com.transactions.Invoice.presentation.dtos.base;
 
 import lombok.Data;
 

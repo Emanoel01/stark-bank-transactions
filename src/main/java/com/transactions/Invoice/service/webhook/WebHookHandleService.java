@@ -37,9 +37,11 @@ public class WebHookHandleService implements WebHookHandlerInvoice {
             transferEntity.setAmount(finalAmount);
             transferEntity.setTags(invoice.getTags());
 
-            BankAccountEntity bankAccountEntity = this.findBankAccountByTaxIDRepository.findBankAccountByTaxID("");
+            BankAccountEntity bankAccountEntity = this.findBankAccountByTaxIDRepository.findBankAccountByTaxID("20.018.183/0001-80");
 
-            if(bankAccountEntity == null) throw  new Error("BANK_ACCOUNT_NOT_FOUND");
+//            System.out.println(bankAccountEntity);
+
+            if(bankAccountEntity == null) throw new Error("BANK_ACCOUNT_NOT_FOUND");
 
             Boolean resultCreateTransfer = this.createTransferRepository.createTransfer(transferEntity,bankAccountEntity);
 

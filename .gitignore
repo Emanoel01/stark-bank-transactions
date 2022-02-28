@@ -5,7 +5,7 @@ target/
 !**/src/test/**/target/
 
 ### CONFIGURATION ###
-!**/src/resources/application.yml
+./src/resources/application.yml
 
 ### STS ###
 .apt_generated

@@ -1,7 +1,7 @@
-package com.transactions.Invoice.presentation.controllers.dtos.invoice;
+package com.transactions.Invoice.presentation.dtos.invoice;
 
-import com.transactions.Invoice.presentation.controllers.dtos.base.DescriptionDTO;
-import com.transactions.Invoice.presentation.controllers.dtos.base.DiscountDTO;
+import com.transactions.Invoice.presentation.dtos.base.DescriptionDTO;
+import com.transactions.Invoice.presentation.dtos.base.DiscountDTO;
 import lombok.Data;
 
 import java.util.ArrayList;

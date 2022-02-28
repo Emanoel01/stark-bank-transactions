@@ -2,6 +2,8 @@ package com.transactions.Invoice;
 
 import com.starkbank.*;
 
+import com.transactions.Invoice.infra.entities.StarkBankConfigurationEntity;
+import com.transactions.Invoice.infra.implementations.configuration.StarkBankConfigurationRepository;
 import com.transactions.Invoice.main.config.classes.Keys;
 import com.transactions.Invoice.main.config.classes.StartBankConfiguration;
 
@@ -21,7 +23,7 @@ public class InvoiceTransactionsApplication {
 
 
 	@Autowired
-	private StartBankConfiguration configuration;
+	private StarkBankConfigurationRepository starkBankConfigurationRepository;
 
 	@Autowired
 	private Keys keys;
@@ -31,18 +33,31 @@ public class InvoiceTransactionsApplication {
 	}
 
 	@PostConstruct
-	public void getProjectConfig() throws Exception {
+	public void getProjectConfig(){
 
-		File file = new File(keys.getPath()+"/privateKey.pem");
-		FileInputStream fileInputStream = new FileInputStream(file);
-		byte[] encKey = new byte[fileInputStream.available()];
-		fileInputStream.read(encKey);
-		fileInputStream.close();
-		String stringKey = new String(encKey, StandardCharsets.UTF_8);
+		StarkBankConfigurationEntity configurationEntity = this.starkBankConfigurationRepository.findById("5Gtp8CnBTJmQxkfyuxGX").block();
 
-		Project user = new Project("sandbox",configuration.getProjectId(), stringKey);
+//		System.out.println(configurationEntity);
 
-		Settings.user = user;
+		File diretorio= new File("");
+		File privateKey = new File(diretorio.getAbsolutePath() + keys.getPath()+"/privateKey.pem");
+		FileInputStream fileInputStream;
+		try {
+			fileInputStream = new FileInputStream(privateKey);
+			byte[] encKey = new byte[fileInputStream.available()];
+			fileInputStream.read(encKey);
+			fileInputStream.close();
+			String privateKeyString = new String(encKey, StandardCharsets.UTF_8);
+			Project user = new Project("sandbox",configurationEntity.getProjectId(), privateKeyString);
+			Settings.user = user;
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }

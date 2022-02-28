@@ -4,9 +4,9 @@ import com.transactions.Invoice.domain.models.Invoice;
 import com.transactions.Invoice.domain.models.webhook.Invoice.EventInvoice;
 import com.transactions.Invoice.domain.models.webhook.Invoice.LogInvoice;
 import com.transactions.Invoice.domain.models.webhook.Invoice.WebhookInvoice;
-import com.transactions.Invoice.presentation.controllers.dtos.invoice.EventInvoiceDTO;
-import com.transactions.Invoice.presentation.controllers.dtos.invoice.LogInvoiceDTO;
-import com.transactions.Invoice.presentation.controllers.dtos.invoice.WebhookInvoiceDTO;
+import com.transactions.Invoice.presentation.dtos.invoice.EventInvoiceDTO;
+import com.transactions.Invoice.presentation.dtos.invoice.LogInvoiceDTO;
+import com.transactions.Invoice.presentation.dtos.invoice.WebhookInvoiceDTO;
 import org.springframework.beans.BeanUtils;
 
 public class WebhookAdapt {

@@ -1,12 +1,9 @@
 package com.transactions.Invoice.presentation.scheduler;
-
 import com.transactions.Invoice.domain.models.Invoice;
 import com.transactions.Invoice.domain.usecases.invoice.CreateInvoice;
-import com.transactions.Invoice.infra.protocols.invoice.CreateInvoiceRepository;
 import com.transactions.Invoice.utils.generators.CnpjGenerator;
 import com.transactions.Invoice.utils.generators.NameGenerator;
 import com.transactions.Invoice.utils.generators.ValueGenerator;
-import com.transactions.Invoice.utils.hour.Hour;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -17,7 +14,6 @@ import java.util.Random;
 @Component
 @EnableScheduling
 public class CreateInvoiceScheduler {
-
 
     @Autowired
     private NameGenerator nameGenerator;
@@ -58,14 +54,11 @@ public class CreateInvoiceScheduler {
 
               Boolean resultCreateInvoice = this.createInvoice.create(invoice);
 
-              if(!resultCreateInvoice) throw new Exception("");
-
-              continue;
+              if(!resultCreateInvoice) throw new Exception("INVOICE_NOT_CREATED");
           }
-
       }catch (Exception e){
-
+          e.printStackTrace();
+          this.handle();
       }
-
     }
 }
