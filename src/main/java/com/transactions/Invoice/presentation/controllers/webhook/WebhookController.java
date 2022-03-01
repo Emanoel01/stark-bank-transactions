@@ -36,7 +36,7 @@ public class WebhookController {
 
     @GetMapping("/status")
     private ResponseEntity<?> status(){
-        System.out.println("teste");
+//        System.out.println("teste");
         return new ResponseEntity<String>("ONLINE",HttpStatus.OK);
     }
 
