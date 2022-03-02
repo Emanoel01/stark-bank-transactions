@@ -2,6 +2,7 @@ package com.transactions.Invoice;
 
 import com.starkbank.*;
 
+import com.starkbank.ellipticcurve.PrivateKey;
 import com.transactions.Invoice.infra.entities.StarkBankConfigurationEntity;
 import com.transactions.Invoice.infra.implementations.configuration.StarkBankConfigurationRepository;
 import com.transactions.Invoice.main.config.classes.Keys;
@@ -37,10 +38,10 @@ public class InvoiceTransactionsApplication {
 
 		StarkBankConfigurationEntity configurationEntity = this.starkBankConfigurationRepository.findById("5Gtp8CnBTJmQxkfyuxGX").block();
 
-//		System.out.println(configurationEntity);
 
-		File diretorio= new File("");
-		File privateKey = new File(diretorio.getAbsolutePath() + keys.getPath()+"/privateKey.pem");
+//		File diretorio= new File("");
+//		File privateKey = new File(diretorio.getAbsolutePath() + keys.getPath() + "privateKey.pem");
+		File privateKey = new File("app/privateKey.pem");
 		FileInputStream fileInputStream;
 		try {
 			fileInputStream = new FileInputStream(privateKey);

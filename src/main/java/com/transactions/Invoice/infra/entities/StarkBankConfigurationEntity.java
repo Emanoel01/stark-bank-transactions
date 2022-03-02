@@ -11,4 +11,8 @@ public class StarkBankConfigurationEntity {
     private String id;
 
     private String projectId;
+
+    private String publicKey;
+
+    private String privateKey;
 }

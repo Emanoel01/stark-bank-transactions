@@ -27,7 +27,6 @@ public class InvoiceRepository implements CreateInvoiceRepository {
         invoices = Invoice.create(invoices);
 
         for (Invoice invoice : invoices) {
-//            System.out.println(invoice);
             if (!invoice.status.equals("created")) return false;
         }
 
